@@ -1,0 +1,70 @@
+%%sql
+CREATE TABLE Products
+    (
+        product_SKU int,
+        product_Name VARCHAR (100),
+        wholesale_Price double,
+        sales_Price double,
+        in_Stock int
+    );
+    
+    
+    %%sql
+CREATE TABLE Customers
+    (
+        cID int,
+        customer_name VARCHAR (40),
+        pone_Number VARCHAR (12),
+        address_All VARCHAR (50),
+        city VARCHAR(20),
+        stateCode VARCHAR(2),
+        zip_Code int,
+        country VARCHAR (50)
+    );
+    
+    
+    %%sql 
+CREATE TABLE Orders
+    (
+        order_Num int,
+        order_Date DATE,
+        shipping_Date DATE,
+        comments VARCHAR(255)
+    );
+    
+    %%sql 
+CREATE TABLE order_Details
+    (
+        order_Num int,
+        product_SKU int,
+        quantity int,
+        sale_Price double
+    );
+    
+    %%sql
+CREATE TABLE payment
+    (
+        billing_Address VARCHAR(50),
+        customer_Num int,
+        card_Num VARCHAR(20),
+        FULLNAME VARCHAR(50),
+        exp_Date VARCHAR(6),
+        security_Code VARCHAR(3)
+    );
+    
+    %%sql
+CREATE TABLE Employee
+     (
+     emp_id int(11) NOT NULL,
+     fullname VARCHAR(30) NOT NULL,
+     phone_num VARCHAR(12),
+     start_date Date,
+     email_address VARCHAR(50),
+     position_id int(11) NOT NULL,
+     store_id int(11) NOT NULL,
+     PRIMARY KEY (emp_id),
+     FOREIGN KEY (position_id) REFERENCES Position (position_id) ON DELETE CASCADE,
+     FOREIGN KEY (store_id) REFERENCES Store (store_id) ON DELETE CASCADE
+     );
+     
+     
